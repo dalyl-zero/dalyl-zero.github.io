@@ -46,11 +46,6 @@ form.addEventListener('submit', e => {
             document.getElementById('value').setAttribute('placeholder', str);
             document.getElementById('value').classList.add('bg-success', 'text-success');
         })
-        .catch(() => {
-            const str = 'There is a problem with your internet connection';
-            document.getElementById('value').setAttribute('placeholder', str);
-            document.getElementById('value').classList.add('bg-danger', 'text-danger');
-        })
 });
 
 window.addEventListener('load', () => {

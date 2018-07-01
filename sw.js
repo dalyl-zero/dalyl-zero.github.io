@@ -33,7 +33,7 @@ function update(request) {
 }
 
 self.addEventListener('install', event => {
-    self.skipWaiting();
+    //self.skipWaiting();
 
     event.waitUntil(preCache());
 });
