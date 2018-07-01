@@ -37,6 +37,8 @@ function update(request) {
 
 self.addEventListener('install', event => {
     event.waitUntil(preCache());
+
+    return self.skipWaiting();
 });
 
 self.addEventListener('fetch', event => {
@@ -44,6 +46,6 @@ self.addEventListener('fetch', event => {
     if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin')
         return;
 
-    event.waitUntil(update(event.request));
     event.respondWith(fromCache(event.request));
+    event.waitUntil(update(event.request));
 });
