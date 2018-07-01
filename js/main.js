@@ -44,14 +44,13 @@ form.addEventListener('submit', e => {
             const result = +amt * +rate[0];
             const str = `${amt} ${fr} = ${result} ${to}`;
             document.getElementById('value').setAttribute('placeholder', str);
-            document.getElementById('value').classList.add('bg-success', 'text-success');
         })
 });
 
 window.addEventListener('load', () => {
 
-    // Countries data should be stored in IndexedDB
-    // Service worker should not intercept and cache this request
+    // data on countries should be stored in IndexedDB
+    // ServiceWorker should not intercept and cache this request
     const countriesPromise = currencyAPI.fetch('countries');
     countriesPromise.then(countries => {
         countries = Object.values(countries[0]);

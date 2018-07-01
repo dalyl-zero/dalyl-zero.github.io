@@ -36,12 +36,21 @@ function update(request) {
 }
 
 self.addEventListener('install', event => {
-    //self.skipWaiting();
-
     event.waitUntil(preCache());
+
+    return self.skipWaiting();
+});
+
+self.addEventListener('activate', () => {
+    return self.clients.claim();
 });
 
 self.addEventListener('fetch', event => {
+    // Workaround for chrome bug ! xD
+    if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') {
+        return;
+    }
+
     if (!event.request.url.endsWith('countries')) {
         event.waitUntil(update(event.request));
 
