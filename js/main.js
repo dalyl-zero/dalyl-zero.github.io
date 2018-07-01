@@ -2,7 +2,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');
 }
 
-const currencyAPI = new API;
+const currencyAPI = new API();
 
 const currencyPromise = currencyAPI.fetch('currencies');
 currencyPromise.then(currencies => {

@@ -1,7 +1,7 @@
 class API {
-    static baseUrl = 'https://free.currencyconverterapi.com/api/v5/';
-
     constructor() {
+        this.baseUrl = 'https://free.currencyconverterapi.com/api/v5/';
+
         this.dbPromise = idb.open('currency-converter-api', 1, upgradeDb => {
             if (!upgradeDb.objectStoreNames.contains('countries')) {
                 upgradeDb.createObjectStore('countries');
@@ -10,7 +10,7 @@ class API {
     }
 
     async fetch(resource) {
-        const response = await fetch(API.baseUrl + resource);
+        const response = await fetch(this.baseUrl + resource);
         let data = await response.text();
 
         // We can now guarantee the synchronous state of the data
