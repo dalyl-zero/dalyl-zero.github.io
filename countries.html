@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Currency Converter: Countries</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <!-- This page uses the power of service workers and IndexedDb to serve countries data without caring much about connectivity -->
+
+    <header class="container-fluid p-3 mb-5 bg-info text-light text-center shadow">
+        <h2>Currency Converter</h2>
+    </header>
+    <section class="container col-md-6 mb-5">
+        <div id="countries"></div>
+    </section>
+    <footer class="text-center">
+        <p>Copyright &copy; 2018 &ndash; Ali Dalyl Hamadou </p>
+    </footer>
+
+    <script src="js/idb.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const countries = currencyAPI.get('countries');
+
+        for (const country of countries) {
+            const card = document.createElement('DIV');
+            card.classList.add('card');
+
+            const cardHeader = document.createElement('DIV');
+            card.classList.add('card-header');
+
+            const cardLink = document.createElement('A');
+            cardLink.setAttribute('data-toggle', 'collapse');
+            cardLink.href = `#${country.name}`;
+            cardLink.textContent = country.name;
+            card.classList.add('card-link');
+
+            cardHeader.appendChild(cardLink);
+            card.appendChild(cardHeader);
+
+            const cardContent = document.createElement('DIV');
+            cardContent.id = cardLink.href.substr(1);
+            cardContent.classList.add('collapse', 'show');
+            cardLink.setAttribute('data-parent', cardLink.href);
+
+            const cardBody = document.createElement('card-body');
+            cardBody.innerHTML = `
+            <p><strong>Currency Name: </strong>country.currencyName</p>
+            <p><strong>Currency Code: </strong>country.currencyId</p>
+            <p><strong>Currency Symbol: </strong>country.currencySymbol</p>
+            `;
+
+            cardContent.appendChild(cardBody);
+
+            const wrapper = document.createElement('DIV');
+            wrapper.appendChild(card);
+            wrapper.appendChild(cardBody);
+
+            document.getElementById('countries').appendChild(wrapper);
+        }
+    </script>
+</body>
+</html>
