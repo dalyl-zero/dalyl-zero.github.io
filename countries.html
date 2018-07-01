@@ -45,13 +45,13 @@
                 const cardLink = document.createElement('A');
                 cardLink.classList.add('collapsed', 'card-link');
                 cardLink.setAttribute('data-toggle', 'collapse');
-                cardLink.href = `#${country.name}`;
+                cardLink.href = `#${country.id}`;
                 cardLink.textContent = country.name;
 
                 cardHeader.appendChild(cardLink);
 
                 const cardContent = document.createElement('DIV');
-                cardContent.id = `${country.name}`;
+                cardContent.id = `${country.id}`;
                 cardContent.classList.add('collapse');
                 cardLink.setAttribute('data-parent', '#accordion');
 
