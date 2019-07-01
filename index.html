@@ -1,59 +1,63 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Currency Converter</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>Moni</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
     <header class="container-fluid p-3 mb-5 bg-info text-light text-center shadow">
-        <h2>Currency Converter</h2>
+        <h2>Moni</h2>
     </header>
-    <section class="container col-md-6 mb-5">
-        <div class="jumbotron text-dark">
-            <h2 class="text-justify">How to use :</h2>
-            <ol>
-                <li>Enter an amount</li>
-                <li>Choose a currency to convert from</li>
-                <li>Choose another currency to convert to</li>
-                <li>Click convert</li>
-            </ol>
-            <p>You may also want to <a href="countries.html">see all countries</a></p>
+   
+    <section class="container col-md-9 mb-5">
+
+        <img src="img/Logo.png" class="col col-sm-3  img-responsive img-rounded">
+        <div class="dropdown">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Menus</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"> Home</a></li>
+                <li><a class="dropdown-item" href="lexique.php"> Lexique</a></li>
+                <li><a class="dropdown-item" href=""> Link</a></li>
+            </ul>
         </div>
+        <br>
         <form>
             <div class="form-group">
-                <label for="amount">Amount</label>
+                <label for="amount">Montant</label>
                 <input type="number" name="amount" id="amount" class="form-control" min="1" step=".01" required>
             </div>
             <div class="form-group row">
                 <div class="col">
-                    <label for="from">From</label>
+                    <label for="from">Source</label>
                     <select name="from" id="from" class="form-control" required></select>
                 </div>
                 <div class="col">
-                    <label for="to">To</label>
+                    <label for="to">Cible</label>
                     <select name="to" id="to" class="form-control" required></select>
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="value" id="value" placeholder="The result will be displayed here" disabled>
+                <input type="text" class="form-control" name="value" id="value" disabled>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Convert</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+                <button type="reset" class="btn btn-info">Reset</button>
+                <button type="submit" class="btn btn-success">Convert</button>
             </div>
         </form>
     </section>
     <hr>
     <footer class="text-center">
-        <p>Copyright &copy; 2018 &ndash; Ali Dalyl Hamadou </p>
+        <p>Copyright &copy; 2019 Moni &ndash; All Rights Reserved. </p>
     </footer>
-
-    <script src="js/idb.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
