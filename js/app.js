@@ -1,13 +1,6 @@
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../sw.js')
-  .then(function(response) {
-    
-    // Service worker registration done
-    console.log('Registration Successful', response);
-  }, function(error) {
-    // Service worker registration failed
-    console.log('Registration Failed', error);
-  }
+  navigator.serviceWorker.register('/sw.js');
+}
 
 const getCurrencies = async () => {
     const res = await fetch('https://free.currencyconverterapi.com/api/v6/currencies?apiKey=769d19e608e0f237c033');
